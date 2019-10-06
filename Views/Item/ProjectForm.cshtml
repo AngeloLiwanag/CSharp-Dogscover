@@ -1,0 +1,61 @@
+@model Item
+
+<style>
+    input {
+        max-width: 50%;
+    }
+    body {
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+<div class="container">
+    <h3 class="mt-5">Put your New Dog Idea!</h3><br>
+        <form class="col" asp-action="CreateProject" asp-controller="Item" method="post">
+                <div class="row" >
+                    <div class="form-group col">
+                        <label asp-for="Name">Product Name </label>
+                        <input asp-for="Name" type="text" class="form-control" >
+                        <span style="color:red;" asp-validation-for="Name"></span>
+                    </div>
+                    <div class="form-group col">
+                        <label asp-for="Brand">Brand Name </label>
+                        <input asp-for="Brand" type="text" class="form-control" >
+                        <span style="color:red;" asp-validation-for="Brand"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label asp-for="Price">Potential Price </label>
+                        <input asp-for="Price" type="number" class="form-control">
+                        <span style="color:red;" asp-validation-for="Price"></span>
+                    </div>
+                    <div class="form-group col">
+                        <label asp-for="CurrentFunding">Current Funding </label>
+                        <input asp-for="CurrentFunding" type="Number" class="form-control" value="0">
+                        <span style="color:red;" asp-validation-for="CurrentFunding"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label asp-for="FundingGoal">Funding Goal </label>
+                        <input asp-for="FundingGoal" type="Number" class="form-control">
+                        <span style="color:red;" asp-validation-for="FundingGoal"></span>
+                    </div>
+                    <div class="form-group col">
+                        <label asp-for="ImageURL">Image Address URL</label>
+                        <input asp-for="ImageURL" type="text" class="form-control">
+                        <span style="color:red;" asp-validation-for="ImageURL"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label asp-for="Description">Item Description </label>
+                        <textarea class="form-control" asp-for="Description" rows="3"></textarea>
+                        <span style="color:red;" asp-validation-for="Description"></span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-outline-success">Create</button>
+            </form>
+
+</div>

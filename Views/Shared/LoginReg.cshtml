@@ -1,0 +1,49 @@
+@model User;
+
+@{
+    LoginUser newLogin = new LoginUser();
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h4 class="display-4">Register!</h4>
+            <form class="col" asp-action="Register" asp-controller="Home" method="post">
+                <div class=" mb-5" >
+                    <div class="form-group">
+                        <label asp-for="FirstName">First Name:</label>
+                        <input asp-for="FirstName" type="name" class="form-control" >
+                        <span style="color:red;" asp-validation-for="FirstName"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LastName">Last Name:</label>
+                        <input asp-for="LastName" type="name" class="form-control" >
+                        <span style="color:red;" asp-validation-for="LastName"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email">Email</label>
+                        <input asp-for="Email" type="Email" class="form-control">
+                        <span style="color:red;" asp-validation-for="Email"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password">Password</label>
+                        <input asp-for="Password" type="Password" class="form-control" >
+                        <span style="color:red;" asp-validation-for="Password"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Confirm">Confirm Password:</label>
+                        <input asp-for="Confirm" type="Password" class="form-control">
+                        <span style="color:red;" asp-validation-for="Confirm"></span>
+                    </div>
+                    <button type="submit" class="btn btn-outline-success">Register</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col">
+            <partial name="LoginPartial" model="newLogin"/>
+        </div>
+
+    </div>
+
+</div>

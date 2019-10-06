@@ -1,0 +1,37 @@
+@model List<Item>
+
+<style>
+  h3 {
+    text-align: center;
+  }
+  
+  .text-warning {
+    display: inline;
+  }
+
+  
+</style>
+<div class="container">
+  <div class="ViewSize mt-5">
+    <h3>Support a Project!</h3><br>
+    
+    <div class="inline-block d-flex flex-wrap text-center products">
+    @foreach(var item in Model)
+    {
+      <div class="shadow-lg bg-white rounded card mb-3 inline-block mr-4 ml-4" style="max-width: 20rem;">
+        <div class="card-body">
+          <a asp-action="ShowProject" asp-controller="Item" asp-route-id="@item.ItemId">
+            <h4 style="color:#02b875; text-align:center;" class="card-title">@item.Name</h4>
+            <img src="@item.ImageURL" alt="image" style="max-width: 18rem; max-height: 18rem;">
+          </a>
+          <br>
+          <br>
+          <p class="text-warning">Made by @item.Brand</p><br>
+          <p class="text-secondary">Number of Barkers: @item.Funders.Count</p>
+        </div>
+      </div>
+    }
+    </div>
+  </div>
+
+</div>

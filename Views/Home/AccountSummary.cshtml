@@ -1,0 +1,30 @@
+@model User
+
+<div class="container">
+    <section>
+        <h4 class="mt-5">Account Information</h4>
+        <hr>
+        <div>
+            <p><strong>First Name:</strong> @Model.FirstName</p>
+            <p><strong>Last Name:</strong> @Model.LastName </p>
+            <p><strong>Email Address:</strong> @Model.Email </p>
+            <p><strong>Funded Projects:</strong></p>
+            <ul>
+            @foreach(var funded in Model.FundedItems)
+            {
+                <li><a asp-action="ShowProject" asp-controller="Item" asp-route-id="@funded.ItemId">@funded.ItemsFunded.Name</a></li>
+            }
+             </ul>
+            <p><strong>My Projects:</strong></p>
+            <ul>
+            @foreach(var items in Model.CreatedItems)
+            {
+                <li><a asp-action="ShowProject" asp-controller="Item" asp-route-id="@items.ItemId">@items.Name</a></li>
+            }
+            </ul>
+        </div>
+    </section>
+    <br>
+    <a asp-action="Logout" asp-controller="Home" style="text-decoration: none; color: white" ><button type="button" class="btn btn-success" style="color: white">Logout</a></button>
+</div>
+
